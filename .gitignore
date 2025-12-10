@@ -1,4 +1,7 @@
-src/__pycache__
+src/training/__pycache__
+src/evaluating/__pycache__
+src/util/__pycache__
+whatsup_vlms/dataset_zoo/__pycache__
 
 *.png
 *.jpg
