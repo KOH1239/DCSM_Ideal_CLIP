@@ -72,6 +72,7 @@ class ObjaverseDataset_spatial(Dataset):
 
         # Load the image
         image = Image.open(img_path)
+        opposite_image = image
 
         if self.cutmix:
             opp_img_name = os.path.join(self.image_dir, "CUTMIX_" + img_name)
@@ -145,6 +146,7 @@ class ObjaverseDataset_spatial(Dataset):
         else:
             return {
                 "image_options": image,
+                "opposite_image_options": opposite_image,
                 "caption_options": caption,
                 "opposite_caption_options": opp_caption,
             }
@@ -210,6 +212,7 @@ class ObjaverseDataset_color(Dataset):
 
         # Load the image
         image = Image.open(img_path)
+        opposite_image = image
 
         if self.cutmix:
             if "small" in img_name:
@@ -243,11 +246,19 @@ class ObjaverseDataset_color(Dataset):
             if randomnot < self.notchance * 100:
                 opp_caption = f"Not a picture of a {c2} {B} and a {c1} {A}"
 
-        return {
-            "image_options": image,
-            "opposite_image_options": opposite_image,
-            "caption_options": caption,
-            "opposite_caption_options": opp_caption,
+        if self.cutmix:
+            return {
+                "image_options": image,
+                "opposite_image_options": opposite_image,
+                "caption_options": caption,
+                "opposite_caption_options": opp_caption,
+            }
+        else:
+            return {
+                "image_options": image,
+                "opposite_image_options": image,
+                "caption_options": caption,
+                "opposite_caption_options": opp_caption,
         }
 
 

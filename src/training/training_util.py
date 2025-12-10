@@ -88,7 +88,7 @@ def make_and_return_train_data(general_data_path, halfneg_bool=False, batch_size
         no_special_words=True,
         settype=0,
         add_spw=True,
-        cutmix=True,
+        cutmix=False,
         notchance=0,
     )
     spatial_dataset_B = ObjaverseDataset_spatial(
@@ -96,7 +96,7 @@ def make_and_return_train_data(general_data_path, halfneg_bool=False, batch_size
         no_special_words=True,
         settype=1,
         add_spw=True,
-        cutmix=True,
+        cutmix=False,
         notchance=0,
     )
 
@@ -105,7 +105,7 @@ def make_and_return_train_data(general_data_path, halfneg_bool=False, batch_size
         no_special_words=True,
         settype=0,
         add_spw=True,
-        cutmix=True,
+        cutmix=False,
         notchance=0,
     )
     color_dataset_B = ObjaverseDataset_color(
@@ -113,7 +113,7 @@ def make_and_return_train_data(general_data_path, halfneg_bool=False, batch_size
         no_special_words=False,
         settype=1,
         add_spw=True,
-        cutmix=True,
+        cutmix=False,
         notchance=0,
     )
 
