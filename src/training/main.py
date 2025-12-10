@@ -77,6 +77,7 @@ if __name__ == "__main__":
     dro = args.dropout
     lr = args.learn_rate
     epochs = args.epochs
+    bathch_size = args.batch_size
 
     # root_dir = general_data_path = (
     #     r"D:\temporary_data\art_with_shapes\Logical-CLIP\src\whatsup_vlms\data"
@@ -95,7 +96,7 @@ if __name__ == "__main__":
         general_data_path=general_data_path,
         epochs=epochs,
         lr=lr,
-        batch_size=8,
+        batch_size=bathch_size,
         l2_lambda=0,
         dropout_prob=dro,
         single_words=False,
